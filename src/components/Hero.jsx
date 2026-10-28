@@ -50,13 +50,12 @@ export default function Hero({ onOpenResumeModal }) {
   return (
     <section 
       id="hero"
+      className="hero-section"
       style={{
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        paddingTop: '5.5rem',
-        paddingBottom: '3rem',
         overflow: 'hidden'
       }}
     >
@@ -91,26 +90,10 @@ export default function Hero({ onOpenResumeModal }) {
       />
 
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-        <div 
-          className="hero-grid"
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr',
-            gap: '2.5rem',
-            alignItems: 'center'
-          }}
-        >
-          <style>{`
-            @media (min-width: 1024px) {
-              .hero-grid {
-                grid-template-columns: 1.2fr 0.8fr !important;
-                gap: 3.5rem !important;
-              }
-            }
-          `}</style>
+        <div className="hero-grid">
 
           {/* LEFT COLUMN: Name, Role, Introduction, Highlights, Action Buttons */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <div className="hero-text-col">
             
             {/* Status Pills */}
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.65rem' }}>
@@ -396,7 +379,7 @@ export default function Hero({ onOpenResumeModal }) {
           </div>
 
           {/* RIGHT COLUMN: Real Profile Photo Frame with Blue-Purple Glow & Hover Animation */}
-          <div style={{ display: 'flex', justifyContent: 'center', position: 'relative' }}>
+          <div className="hero-photo-col">
             <div className="hero-photo-wrapper">
               
               {/* Subtle Blue-Purple Glow Backdrop */}
@@ -408,12 +391,6 @@ export default function Hero({ onOpenResumeModal }) {
                   src={`${import.meta.env.BASE_URL}profile.jpg`} 
                   alt="Kamjula Lahari - Computer Science Engineering Student" 
                   className="hero-photo-img"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center 20%'
-                  }}
                 />
 
                 {/* Subtle Name Overlay Tag */}
@@ -457,25 +434,14 @@ export default function Hero({ onOpenResumeModal }) {
 
               {/* Floating tech badge pills around the portrait frame */}
               <div 
-                className="floating-pill animate-float"
-                style={{
-                  top: '-14px',
-                  right: '-16px',
-                  borderColor: 'rgba(139, 92, 246, 0.5)'
-                }}
+                className="floating-pill floating-pill-top animate-float"
               >
                 <Code2 size={14} style={{ color: '#a78bfa' }} />
                 <span>C &bull; Python &bull; JS</span>
               </div>
 
               <div 
-                className="floating-pill animate-float"
-                style={{
-                  bottom: '15px',
-                  left: '-20px',
-                  animationDelay: '1.8s',
-                  borderColor: 'rgba(6, 182, 212, 0.4)'
-                }}
+                className="floating-pill floating-pill-bottom animate-float"
               >
                 <Database size={14} style={{ color: '#38bdf8' }} />
                 <span>DBMS &bull; Data Structures</span>
